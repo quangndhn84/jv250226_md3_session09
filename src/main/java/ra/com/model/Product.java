@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.naming.Name;
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Product")
@@ -22,6 +24,11 @@ public class Product {
     private String productName;
     @Column(name = "product_price", columnDefinition = "float check(product_price>0)", nullable = false)
     private float price;
+    @Column(name = "product_image", columnDefinition = "varchar(200)", nullable = false)
+    private String image;
+    @Column(name = "product_created")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate created;
     //Khóa ngoại: product thuộc về 1 category
     @ManyToOne
     @JoinColumn(name = "catalog_id", referencedColumnName = "catalog_id")

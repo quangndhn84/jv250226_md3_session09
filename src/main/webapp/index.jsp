@@ -7,7 +7,7 @@
 <body>
 <ul>
     <li><a href="<%=request.getContextPath()%>/categoryController/findAll">Category Management</a></li>
-    <li><a href="">Product Management</a></li>
+    <li><a href="<%=request.getContextPath()%>/productController/findAll">Product Management</a></li>
 </ul>
 </body>
 </html>
